@@ -154,7 +154,7 @@ while Mode != "D" and Mode != "d" and Mode != "E" and Mode != "e":
 
 
 print("")
-if Mode == "D" or Mode == "d":#decryption -----------------------------------------------------
+if Mode == "D" or Mode == "d":#DECRYPTION -----------------------------------------------------
 
     ###note on encryption standard, 8 bits for sheet no., then 24 bits for char number in the sheet, then the message after. pre message signature is consistent.
     print("Starting Decryption...")
