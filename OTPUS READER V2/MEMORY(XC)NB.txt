@@ -1,0 +1,10 @@
+6
+1
+
+
+Key: for each line
+
+312 	- character index
+1 	 - current sheet number, of NA 
+
+

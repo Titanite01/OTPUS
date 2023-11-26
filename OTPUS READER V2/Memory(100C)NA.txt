@@ -1,0 +1,5 @@
+479626 - MAX character count (in current memory sheet)
+479626 - characters left prior to most recent read.
+479626 - characters left (char index)
+1 	  - current sheet number, of NA 
+
