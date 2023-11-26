@@ -160,54 +160,20 @@ if Mode == "D" or Mode == "d":#DECRYPTION --------------------------------------
     print("Starting Decryption...")
     print("")
 
-    rawInput=str(input("Please input the Encrypted binary message you received: "))
+    rawInput=str(input("Please input the Encrypted binary message you received: "))    #example data 1111 1111 1111 1111 1111 1111 1111 1111
     Input = strip(rawInput)
-    while (len(Input)%8) != 0:#check if divisible of 8
-        print("Invalid code, please try again, the code may have been truncated.")
-        rawInput=str(input("Please input the Encrypted binary message you received: "))
-        Input = strip(rawInput)
-    # loop to validate code is 8 bit encoded and stripped. Example data     1001 1101  1111 1011 0000 1101 0101 0111
-    packetHeader = Input[0:32]
-    print(packetHeader, "packetheader")
-    Input = Input[32:len(Input)+1]
-    print(Input, "input")
-
-
-    fileLog = open("MEMORY(XC)NB.txt","r") #read from log file what index is
-
-    charIndexRead = fileLog.readlines(1)
-    charIndex = 0
-    charIndex = strip(charIndexRead[0])
-    charIndex = (int(charIndex)) #derives index position
     
-    print(charIndex, "charindex")
+    print(Input, "input")
     print(len(Input), "len of input in binary")
 
-    fileLog.close()
+
+    #fileLog = open("MEMORY(XC)NB.txt","r") #read from log file what sheet number is
+
     
     #fileCipher = open("cipher(100C)NA234.txt","r")      #IN FUTURE ADD FUNCTION TO READ AS MANY FILES AS NECESSARY 
-    Cipher = ""
 
-    for repeat in range(6):
-        counter = 0
-        while counter != 8: #repeat until onto no 8 character
 
-                fileCipher = open("cipher(100C)NA234.txt","r")
-                data = fileCipher.read(1)
-                if data == "1" or data == "0":
-                    counter = counter + 1
-                
-                readCharacter = readCharacter.replace(readCharacter, "#")#READ THE WHOLE FILE, TAKE OFF THE NEW LENGTH?
-                fileCipher = open("cipher(100C)NA234.txt","w")
-                fileCipher.write(readCharacter)
-                fileCipher.close()
-                
-                if readCharacter == "1" or readCharacter == "0":
-                    counter = counter + 1
-                #endif
-        #endwhile
-        print("index found!")
-                    
+    Cipher = ""                  
     fileCipher = open("cipher(100C)NA234.txt","r")
     while len(Cipher) != len(Input): #whilst the cipher hasn't matched the input in length
 
@@ -237,18 +203,7 @@ if Mode == "D" or Mode == "d":#DECRYPTION --------------------------------------
     print("")
     print(Message)
     
-    #To deal with file manipulation and logs: -------------------------------
-
-    #accessible vars: charsUsed[in denary. to be multiplied by 8], packetHeader(sheet number in bin, 'characters used' for indexing of message)
-    #accessible from reading from local memory file: Original amount of digits in sheet, how many messages sent/received. previous two sent/received message lengths. 
     
-    #to do, make the cipher have its first (charsUsed*8) digits censored, as in replaced with hashes - validate that these deleted are 8, 1s and 0s ignoring formatting.
-
-    #make the decrypter cross reference the 'characters used' to find the correct cipher. the aformentioned will be the start index for the cipher.
-    
-    #also - ignore sheet numbers for now.
-
-    #to make encryption encrypt packetHeader of 32 bits before the message, also have encrypter read the cipher file and find index after the hashes for packetHeader. 
 
 
     
