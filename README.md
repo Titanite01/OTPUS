@@ -15,7 +15,7 @@ Version 5 (Latest) --
 - The system only supports a single line of communication, you can send one message then receive one, you cannot send 2 messages in a row.
 
 
-- TO SEND A MESSAGE:
+TO SEND A MESSAGE:
 
 - Type your message into MAILBOX.txt
 - Run the python application
@@ -23,14 +23,14 @@ Version 5 (Latest) --
 - send this text file containing the encrypted hex message to the recipient
 
 
-- TO RECEIVE A MESSAGE:
+TO RECEIVE A MESSAGE:
 
 - Take the message file and place it into the main folder
 - Run the application
 - The message will now be written to MAILBOX.txt
 
 
-- TO LOAD A NEW IMAGE:
+TO LOAD A NEW IMAGE:
 
 - Navigate to the 'photo album' Folder
 - Run the python application called 'Picture Loader'
