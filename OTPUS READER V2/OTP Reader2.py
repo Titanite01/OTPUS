@@ -17,7 +17,7 @@ def convertFromASCII(raw, charset):
         exponent = 0
         denary = 0
         for counter in range(8):   #calculates the decimal of the raw binary of each 8bit packet 
-            print("total + ", (int(raw[index + counter]), "times ",  int(2**exponent)))
+            #print("total + ", (int(raw[index + counter]), "times ",  int(2**exponent)))
             denary = denary + (int(raw[index + counter]) * int(2**exponent))
             exponent = exponent + 1
             
@@ -123,7 +123,26 @@ def applyCipher(code, message):
        
 #end function    
 
+def deleteCipher(length, fileCipherPath):
 
+        fileCipher = open(fileCipherPath, "r")
+
+        rawCipher = fileCipher.readline()
+
+        rawCipher = "".join(rawCipher.split('\t'))
+
+        fileCipher.close()
+
+        # Overwrite
+
+        fileCipher = open(fileCipherPath, "w")
+
+        fileCipher.write(rawCipher[length:])
+
+        fileCipher.close()
+
+        return rawCipher[:length]
+    
 
 #start mainbody-----------------------------------------------------------------------------
 
@@ -134,7 +153,7 @@ except:
     print("You do not have pyperclip installed, thus python will not be able to autosave to your clipboard.")
 #end try
     
-charset = "␀␁␂␃␄␅␆␇␈␉␊␋␌␍␎␏␐␑␒␓␔␕␖␗␘␙␚␛␜␝␞␟ !'#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~␡ ¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ"
+charset = "␀␁␂␃␄␅␆␇␈␉␊␋␌␍␎␏␐␑␒␓␔␕␖␗␘␙␚␛␜␝␞␟ !'#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~␡ ¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ"
 
 #ASCII 8 bit printable characters without the "    
 #pyperclip.copy("The text has been copied to the clipboard.")
@@ -163,8 +182,8 @@ if Mode == "D" or Mode == "d":#DECRYPTION --------------------------------------
     rawInput=str(input("Please input the Encrypted binary message you received: "))    #example data 1111 1111 1111 1111 1111 1111 1111 1111
     Input = strip(rawInput)
     
-    print(Input, "input")
-    print(len(Input), "len of input in binary")
+    #print(Input, "input")
+    #print(len(Input), "len of input in binary")
 
 
     #fileLog = open("MEMORY(XC)NB.txt","r") #read from log file what sheet number is
@@ -187,7 +206,7 @@ if Mode == "D" or Mode == "d":#DECRYPTION --------------------------------------
             #endif
         #endwhile
         
-        print("cipher: ", Cipher)
+        #print("cipher: ", Cipher)
           
     fileCipher.close()
 
@@ -196,13 +215,34 @@ if Mode == "D" or Mode == "d":#DECRYPTION --------------------------------------
     (Message,charsUsed) = convertFromASCII(rawMessage, charset) #8 Bit ASCII
 
 
-    
-    
     print("")
     print("Here is the message: ")
     print("")
     print(Message)
+
+    #Below, proceed to delete cipher:
+
+    cipherData = ""
+    fileCipher = open("cipher(100C)NA234.txt","r")
+
+    # returns cipher sections required and delete them from file
+
+    deleteCipher(len(Input),"cipher(100C)NA234.txt")
+
     
+
+
+    #countC = 0
+    #for x in fileCipher:
+
+        #if fileCipher.read(1) == "1" or fileCipher.read(1) == "0":
+            #cipherData = cipherData + fileCipher.read(1)
+            #countC = countC +1
+        #endif
+
+        
+
+        
     
 
 
