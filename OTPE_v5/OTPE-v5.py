@@ -179,6 +179,7 @@ def binary_to_denary(binary):
 
     print(type(binary))
     digits = int(len(binary)/7)
+    print(len(binary),digits)
     message = ""
 
     for index in range(digits):   
@@ -192,9 +193,12 @@ def binary_to_denary(binary):
                     denary = denary + value
     
                 value = int(value/2)
-            
-            #print("Denary  ",denary)
 
+            if denary > 96:
+                denary = 96
+            #Validation to ensure no string overflows
+            #print("Denary  ",denary)
+            #print(charset[denary])
             message = message + charset[denary]
         
     return message
@@ -297,7 +301,7 @@ print("THIS IS THE DEBUGGER")
 #-------
 current_path = str(pathlib.Path(__file__).parent.resolve())
 mode = ""
-charset = " 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!#$%&'()*+,-./:;<=>?@[]^_`{|}~\\"
+charset = " 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!#£$%&'()*+,-./:;<=>?@[]^_`{|}~\\¬|"
 #length = 93*
 #parent_path = 
 #-------
