@@ -1,6 +1,6 @@
 # Made on 18/11/2026 (updated the 2023 version)
 # By Euan H.
-# V5 saved as OTPE v5 
+# V5 saved as OTPE-v5 
 # Title:  One Time Picture Exchange Mailbox
 # ASCII 7-Bit for fast speed, with hex 
 ### pyinstaller version for executables and all related modules
@@ -51,11 +51,12 @@ def check_inbox():
 
     except:
 
+        oldimgpath = (current_path + "\\image1.jpg")
         for file in os.listdir(current_path):
                 if os.path.splitext(file)[1].lower() in ('.jpg', '.jpeg', 'png'):
                     oldimgpath = (os.path.join(current_path, file))
         
-        imgpath = oldimgpath
+        imgpath = (oldimgpath)
         print("No updates detected.")
         print("\n")
 
