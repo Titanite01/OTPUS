@@ -1,5 +1,5 @@
 # Made on 24/03/2023
-# By Euan Hao
+# By Euan H.
 # V2 saved as OTP Reader2
 # use this link for generating new ciphers:  https://www.random.org/integers/?mode=advanced
 # This encryption is runs on pure Binary with an XOR procedure.
